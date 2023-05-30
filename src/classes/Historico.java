@@ -1,2 +1,4 @@
-package classes;public class Historico {
+package classes;
+
+public class Historico {
 }

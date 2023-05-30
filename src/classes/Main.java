@@ -27,9 +27,9 @@ public class Main {
         db.listarUsuarios();
         System.out.println("\n");
 
-        Station estacao1 = new Station("Porto","aviao");
-        Station estacao2 = new Station("Paris", "barco");
-        Station estacao3 = new Station("Londres", "taxi");
+        Station estacao1 = new Station(0,"Porto","aviao");
+        Station estacao2 = new Station(1,"Paris", "barco");
+        Station estacao3 = new Station(2,"Londres", "taxi");
 
         db.adicionarStation(estacao1);
         db.adicionarStation(estacao2);
@@ -109,6 +109,8 @@ public class Main {
         for (User user : Top3UserStations) {
             System.out.println(user.getNome());
         }
+
+        db.gerarRelatorioGlobal();
 
         /*Connection search = db.buscarConexao(estacao1, estacao2);
         System.out.println(search);*/

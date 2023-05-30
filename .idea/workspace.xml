@@ -1,21 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48ae32ba-7e3c-4391-b46d-52b38cf68784" name="Changes" comment="" />
+    <list default="true" id="48ae32ba-7e3c-4391-b46d-52b38cf68784" name="Changes" comment="Teste">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Date.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Historico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Historico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Station.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/TravelPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/TravelPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Viagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Viagem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2QNz4XlVxg4CKJYvKeJAzhR350M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/andre/IdeaProjects/Top-Route-iPlanner/src",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\IdeaProjects\Top-Route-iPlanner\src" />
+      <recent name="C:\Users\andre\IdeaProjects\Top-Route-iPlanner\src2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\IdeaProjects\Top-Route-iPlanner\src2" />
+      <recent name="C:\Users\andre\IdeaProjects\Top-Route-iPlanner\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Top-Route-iPlanner" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="classes.Main" />
+      <module name="Top-Route-iPlanner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -24,8 +78,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685208639350</updated>
+      <workItem from="1685208640702" duration="55322000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -37,5 +95,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Teste" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teste" />
   </component>
 </project>

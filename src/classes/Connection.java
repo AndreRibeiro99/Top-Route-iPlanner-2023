@@ -1,16 +1,33 @@
+package classes;
+
+import algs4.In;
+
 class Connection {
+    private int id;
     private Station source;
     private Station destination;
-    private int distance;
+    private double distance;
     private double price;
+    private Date startdate;
+    private Date enddate;
     private int time;
 
-    public Connection(Station source, Station destination, int distance, double price, int time) {
+    public Connection(Integer id, Station source, Station destination, double distance, double price, Date startdate, Date enddate) {
+        this.id = id;
         this.source = source;
         this.destination = destination;
         this.distance = distance;
         this.price = price;
-        this.time = time;
+        this.startdate = startdate;
+        this.enddate = enddate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Station getSource() {
@@ -21,8 +38,16 @@ class Connection {
         return destination;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
+    }
+
+    public Date getStartdate() {
+        return startdate;
+    }
+
+    public Date getEnddate() {
+        return enddate;
     }
 
     public double getPrice() {
@@ -42,4 +67,5 @@ class Connection {
     public String toString() {
         return source + " -> " + destination + " (" + distance + ")";
     }
+
 }
