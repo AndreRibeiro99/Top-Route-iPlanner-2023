@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48ae32ba-7e3c-4391-b46d-52b38cf68784" name="Changes" comment="Teste">
+    <list default="true" id="48ae32ba-7e3c-4391-b46d-52b38cf68784" name="Changes" comment="18:44 30/05/2023">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Date.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Historico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Historico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Mapa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Station.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/TravelPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/TravelPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Viagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Viagem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/andre/IdeaProjects/Top-Route-iPlanner/src",
+    "last_opened_file_path": "C:/Users/andre/IdeaProjects/Faculty-Management-Platform-in-Java-main",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Git"
   }
@@ -78,8 +70,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685208639350</updated>
-      <workItem from="1685208640702" duration="55322000" />
+      <workItem from="1685208640702" duration="56659000" />
+      <workItem from="1685488843518" duration="11290000" />
     </task>
+    <task id="LOCAL-00001" summary="18:44 30/05/2023">
+      <created>1685468698562</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685468698562</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +99,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Teste" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teste" />
+    <MESSAGE value="18:44 30/05/2023" />
+    <option name="LAST_COMMIT_MESSAGE" value="18:44 30/05/2023" />
   </component>
 </project>

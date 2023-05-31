@@ -175,7 +175,7 @@ class Database {
 
 
     //Gerar Relatorio Global
-    public void gerarRelatorioGlobal() {
+    public void gerarRelatorioGlobal(Date dataInicio, Date dataFim) {
         System.out.println("\n===== Relatório Global do Sistema =====");
         System.out.println("=== Lista de Stations ===");
         listarStations();
@@ -184,9 +184,9 @@ class Database {
         System.out.println("\n=== Lista de Ligações entre Stations ===");
         listarConexoes();
         System.out.println("\n=== Frequência de Utilização Diária das Stations ===");
-        listarFrequenciaUtilizacaoDiariaStations();
+        listarFreqDiariaStations(dataInicio, dataFim);
         System.out.println("\n=== Frequência de Utilização Semanal das Stations ===");
-        listarFrequenciaUtilizacaoSemanalStations();
+        listarFreqSemanalStations(dataInicio, dataFim);
     }
 
     public void listarStations() {
@@ -196,14 +196,14 @@ class Database {
         }
     }
 
-    public void listarFrequenciaUtilizacaoDiariaStations() {
+    public void listarFreqDiariaStations(Date dataInicio, Date dataFim) {
         Map<Station, Integer> frequenciaDiariaStations = new HashMap<>();
 
         for (Integer id : userDB.keys()) {
-            User user = userDB.get(id);
-            RedBlackBST<Date, Connection> historicoUsuario = user.getHistorico();
+            User usuario = userDB.get(id);
+            RedBlackBST<Date, Connection> historicoUsuario = usuario.getHistorico();
 
-            for (Date data : historicoUsuario.keys()) {
+            for (Date data : historicoUsuario.keys(dataInicio, dataFim)) {
                 Connection conexao = historicoUsuario.get(data);
                 Station origem = conexao.getSource();
                 Station destino = conexao.getDestination();
@@ -214,19 +214,19 @@ class Database {
         }
 
         for (Station station : frequenciaDiariaStations.keySet()) {
-            int frequencia = frequenciaDiariaStations.get(station);
-            System.out.println("Station: " + station.getName() + ", Frequência Diária: " + frequencia);
+            int frequenciaDiaria = frequenciaDiariaStations.get(station);
+            System.out.println("Estação: " + station + ", Frequência Diária: " + frequenciaDiaria);
         }
     }
 
-    public void listarFrequenciaUtilizacaoSemanalStations() {
+    public void listarFreqSemanalStations(Date dataInicio, Date dataFim) {
         Map<Station, Integer> frequenciaSemanalStations = new HashMap<>();
 
         for (Integer id : userDB.keys()) {
-            User user = userDB.get(id);
-            RedBlackBST<Date, Connection> historicoUsuario = user.getHistorico();
+            User usuario = userDB.get(id);
+            RedBlackBST<Date, Connection> historicoUsuario = usuario.getHistorico();
 
-            for (Date data : historicoUsuario.keys()) {
+            for (Date data : historicoUsuario.keys(dataInicio, dataFim)) {
                 Connection conexao = historicoUsuario.get(data);
                 Station origem = conexao.getSource();
                 Station destino = conexao.getDestination();
@@ -237,8 +237,8 @@ class Database {
         }
 
         for (Station station : frequenciaSemanalStations.keySet()) {
-            int frequencia = frequenciaSemanalStations.get(station);
-            System.out.println("Station: " + station.getName() + ", Frequência Semanal: " + frequencia);
+            int frequenciaSemanal = frequenciaSemanalStations.get(station);
+            System.out.println("Estação: " + station + ", Frequência Semanal: " + frequenciaSemanal);
         }
     }
 

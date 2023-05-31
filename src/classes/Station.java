@@ -1,16 +1,25 @@
 package classes;
 
+import algs4.In;
+
 import java.util.*;
 
 class Station implements Comparable<Station> {
     private int id;
     private String name;
-    private String type;
+    private Integer aviao;
+    private Integer barco;
+    private Integer metro;
+    private Integer taxi;
 
-    public Station(Integer id, String name, String type) {
+
+    public Station(Integer id, String name, Integer a, Integer b, Integer m, Integer t) {
         this.id = id;
         this.name = name;
-        this.type = type;
+        this.aviao = a;
+        this.barco = b;
+        this.metro = m;
+        this.taxi = t;
     }
 
     public int getId() {
@@ -25,10 +34,21 @@ class Station implements Comparable<Station> {
         return name;
     }
 
-    public String getType() {
-        return type;
+    public Integer getAviao() {
+        return aviao;
     }
 
+    public Integer getBarco() {
+        return barco;
+    }
+
+    public Integer getMetro() {
+        return metro;
+    }
+
+    public Integer getTaxi() {
+        return taxi;
+    }
 
     @Override
     public String toString() {
