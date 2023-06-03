@@ -11,12 +11,14 @@ class User implements Serializable {
     private String preferencia;
 
     private RedBlackBST<Date, Connection> historico;
+    private RedBlackBST<Date, Viagem> viagens;
 
     public User(Integer id, String nome, String preferencia) {
         this.id = id;
         this.nome = nome;
         this.preferencia = preferencia;
         this.historico = new RedBlackBST<>();
+        this.viagens = new RedBlackBST<>();
     }
 
     public String getNome() {

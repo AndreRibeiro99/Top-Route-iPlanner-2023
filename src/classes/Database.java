@@ -1,6 +1,5 @@
 package classes;
 
-import algs4.In;
 import algs4.RedBlackBST;
 
 import java.util.*;
@@ -30,7 +29,7 @@ class Database {
     }
 
 
-    public User buscarUsuario(Integer id) {
+    public User buscarUser(Integer id) {
         if (userDB.contains(id)) {
             return userDB.get(id);
         } else {
@@ -48,9 +47,8 @@ class Database {
         return null;
     }
 
-    // outras funções para remover, editar e listar a informação das coleções
 
-    public void listarUsuarios() {
+    public void listarUsers() {
         for (Integer id : userDB.keys()) {
             User user = userDB.get(id);
             System.out.println("Nome: " + user.getNome() + ", Preferencia: " + user.getPreferencia());
@@ -78,8 +76,9 @@ class Database {
 
         return count;
     }
-
-    public RedBlackBST<Date, Connection> buscarConexoesPorPeriodo(User user, Date dataInicio, Date dataFim) {
+    //R4 a)conexões encontradas
+    //Pesquisar as conexoes de um user num determinado espaço de tempo
+    public RedBlackBST<Date, Connection> buscarConexoesPorTempo(User user, Date dataInicio, Date dataFim) {
         RedBlackBST<Date, Connection> conexoesPeriodo = new RedBlackBST<>();
 
         RedBlackBST<Date, Connection> historicoUsuario = user.getHistorico();
@@ -91,7 +90,8 @@ class Database {
         return conexoesPeriodo;
     }
 
-
+    //R4 b)estações nao utilizadas
+    //Lista de Stations não utilizadas por um user num determinado espaço de tempo
     public List<Station> buscarEstacoesNaoUtilizadas(User user, Date dataInicio, Date dataFim) {
         Set<Station> estacoesUtilizadas = new HashSet<>();
 
@@ -124,7 +124,9 @@ class Database {
         return estacoesNaoUtilizadas;
     }
 
-    public List<User> usuariosPorConexao(Station estacao, Date dataInicio, Date dataFim) {
+    //R4 c)user que passaram na station
+    //Lista de Conexoes utilizadas por um user num determinado espaço de tempo
+    public List<User> userPorConexao(Station estacao, Date dataInicio, Date dataFim) {
         List<User> usuariosPassaram = new ArrayList<>();
 
         for (Integer id : userDB.keys()) {
@@ -136,7 +138,7 @@ class Database {
 
                 if (conexao.getSource() == estacao || conexao.getDestination() == estacao) {
                     usuariosPassaram.add(usuario);
-                    break; // Não é necessário verificar mais conexões para este usuário
+                    break; // Não é necessário verificar mais conexões para este user
                 }
             }
         }
@@ -144,6 +146,8 @@ class Database {
         return usuariosPassaram;
     }
 
+    //R4 d)top 3 users
+    //Lista do top3 de users
     public List<User> Top3UserStations(Date dataInicio, Date dataFim) {
         Map<User, Set<Station>> usuariosEstacoesVisitadas = new HashMap<>();
 
@@ -180,7 +184,7 @@ class Database {
         System.out.println("=== Lista de Stations ===");
         listarStations();
         System.out.println("\n=== Lista de Users ===");
-        listarUsuarios();
+        listarUsers();
         System.out.println("\n=== Lista de Ligações entre Stations ===");
         listarConexoes();
         System.out.println("\n=== Frequência de Utilização Diária das Stations ===");
@@ -223,8 +227,8 @@ class Database {
         Map<Station, Integer> frequenciaSemanalStations = new HashMap<>();
 
         for (Integer id : userDB.keys()) {
-            User usuario = userDB.get(id);
-            RedBlackBST<Date, Connection> historicoUsuario = usuario.getHistorico();
+            User user = userDB.get(id);
+            RedBlackBST<Date, Connection> historicoUsuario = user.getHistorico();
 
             for (Date data : historicoUsuario.keys(dataInicio, dataFim)) {
                 Connection conexao = historicoUsuario.get(data);
@@ -241,10 +245,39 @@ class Database {
             System.out.println("Estação: " + station + ", Frequência Semanal: " + frequenciaSemanal);
         }
     }
+    public void nearByStation(Station s, double distance) {
+        List<Station> stationsWithinDistance = new ArrayList<>();
 
+        // Percorrer todas as estações
+        for (Integer id : stationDB.keys()) {
+            Station station = stationDB.get(id);
+            // Verificar se a Station é do tipo "aviao"
+            if (station.getAviao() == 1) {
+                // Calcular a distância entre pontos
+                double dist = calculateDistance(s.getX(), s.getY(), station.getX(), station.getY());
 
+                // Verificar se distância menor que a que foi determinada (distance)
+                if (dist < distance) {
+                    // Adicionar a estação à lista de resultados
+                    stationsWithinDistance.add(station);
+                }
+            }
+        }
 
+        // Imprimir as estações encontradas
+        System.out.println("\nEstações do tipo 'aviao' a menos de " + (distance/1000) +"Km da station " + s.getName() + " ("+ s.getY() + ", " + s.getY() + "):");
+        for (Station station : stationsWithinDistance) {
+            System.out.println(station.getName());
+        }
+    }
 
+    public double calculateDistance(int x1, int y1, int x2, int y2) {
+        int dx = x2 - x1;
+        int dy = y2 - y1;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
 
-
+    public RedBlackBST<Integer, Connection> getConnectionDB() {
+        return connectionDB;
+    }
 }

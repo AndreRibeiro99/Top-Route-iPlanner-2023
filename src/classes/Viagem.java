@@ -2,71 +2,47 @@ package classes;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Viagem implements Serializable {
     private int id;
-    private Date startdate;
-    private Date enddate;
-    private User user;
-    private Connection connection;
+    private int n_connections;
+    private List<Connection> conexoes;
 
-
-    /**
-     * prints User
-     */
-    public void printUser() {
-        if (this.getUser() != null) {
-            System.out.println(this.user);
-        } else {
-            System.out.println("There isn't a user in this Travel");
-        }
+    public Viagem(Integer id) {
+        this.id = id;
+        this.n_connections = 0;
+        this.conexoes = new ArrayList<>();
     }
 
-    /**
-     * prints a classroom
-     */
-    public void printConnection() {
-        if(this.getConnection() != null) {
-            System.out.println(this.connection);
-        }
-        else {
-            System.out.println("There isn't a connection in this Travel");
-        }
-    }
-    public int getid() {
+    public int getId() {
         return id;
     }
-    public Date getStartdate() {
-        return startdate;
-    }
-    public Date getEnddate() {
-        return enddate;
-    }
-    public User getUser() {
-        return user;
-    }
-    public Connection getConnection() {
-        return connection;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-    public void setConnection(Connection connection) {
-        this.connection = connection;
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Viagem(Connection connection, Date startdate, Date enddate, User user) {
-        this.connection = connection;
-        this.startdate = startdate;
-        this.enddate = enddate;
-        this.user = user;
+    public int getN_connections() {
+        return n_connections;
+    }
+
+    public void setN_connections(int n_connections) {
+        this.n_connections = n_connections;
+    }
+
+    public List<Connection> getConexoes() {
+        return conexoes;
+    }
+
+    public void setConexoes(List<Connection> conexoes) {
+        this.conexoes = conexoes;
     }
 
     @Override
     public String toString() {
-        return "Connection: " + connection + '\'' +
-                " StartDate: " + startdate +
-                " EndDate: " + enddate +
-                "User: " + user;
+        return "Viagem(id): " + id + '\'' +
+                " nConexoes: " + n_connections ;
     }
 }

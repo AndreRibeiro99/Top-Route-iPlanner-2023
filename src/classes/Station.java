@@ -7,15 +7,19 @@ import java.util.*;
 class Station implements Comparable<Station> {
     private int id;
     private String name;
+    private int x;
+    private int y;
     private Integer aviao;
     private Integer barco;
     private Integer metro;
     private Integer taxi;
 
 
-    public Station(Integer id, String name, Integer a, Integer b, Integer m, Integer t) {
+    public Station(Integer id, String name, Integer x, Integer y,Integer a, Integer b, Integer m, Integer t) {
         this.id = id;
         this.name = name;
+        this.x = x;
+        this.y = y;
         this.aviao = a;
         this.barco = b;
         this.metro = m;
@@ -32,6 +36,14 @@ class Station implements Comparable<Station> {
 
     public String getName() {
         return name;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public Integer getAviao() {

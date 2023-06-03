@@ -12,10 +12,11 @@ class Connection {
     private Date enddate;
     private int time;
 
+    //Construtor
     public Connection(Integer id, Station source, Station destination, double distance, double price, Date startdate, Date enddate) {
         this.id = id;
-        this.source = source;
-        this.destination = destination;
+        this.source = source; //origem
+        this.destination = destination; //destino
         this.distance = distance;
         this.price = price;
         this.startdate = startdate;
@@ -65,7 +66,7 @@ class Connection {
 
     @Override
     public String toString() {
-        return source + " -> " + destination + " (" + distance + ")";
+        return source + " --> " + destination + " (" + distance + ")";
     }
 
 }

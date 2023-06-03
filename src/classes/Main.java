@@ -1,7 +1,10 @@
 package classes;
 
+import algs4.DirectedEdge;
 import algs4.RedBlackBST;
-import algs4.Graph;
+//import algs4.Graph;
+import algs4.EdgeWeightedDigraph;
+import algs4.DijkstraSP;
 
 import java.util.*;
 
@@ -13,31 +16,37 @@ public class Main {
         System.out.println("»-------------------------«");
 
         Database db = new Database();
+        Mapa map = new Mapa();
 
+        //Criar users
         User user1 =  new User(1,"André", "barco");
         User user2 =  new User(2,"Frederico", "taxi");
         User user3 =  new User(3,"José", "aviao");
         User user4 =  new User(4,"Francisco", "aviao");
 
+        //Adicionar users à DataBase
         db.adicionarUsuario(user1);
         db.adicionarUsuario(user2);
         db.adicionarUsuario(user3);
         db.adicionarUsuario(user4);
 
         System.out.println("Usuários:");
-        db.listarUsuarios();
+        db.listarUsers();
         System.out.println("\n");
 
-        //Station(id, nome, aviao, barco, metro, taxi)
-        Station estacao1 = new Station(0,"Porto",1,0,1,0); //aviao e metro
-        Station estacao2 = new Station(1,"Paris", 0,1,0,1); //barco e taxi
-        Station estacao3 = new Station(2,"Londres", 1,1,1,1); //aviao, barco, metro e taxi
+        //Criar Stations
+        //Station(id, nome, x, y, aviao, barco, metro, taxi)
+        Station estacao1 = new Station(0,"Porto", 0,0 ,1,0,1,0); //aviao e metro
+        Station estacao2 = new Station(1,"Paris", 700,-50,1,1,0,1); //barco e taxi
+        Station estacao3 = new Station(2,"Londres", 350, 50,1,1,1,1); //aviao, barco, metro e taxi
 
+        //Adicionar Stations à DataBase
         db.adicionarStation(estacao1);
         db.adicionarStation(estacao2);
         db.adicionarStation(estacao3);
 
 
+        //Algumas datas para usar em conexoes
         Date inicio = new Date(1,1,2023,1,0);
         Date fim = new Date(31,12,2023,23,59);
 
@@ -72,7 +81,7 @@ public class Main {
         Connection conexao8 = new Connection(8, estacao3, estacao2, 60.0, 35.0, startdate5, enddate5);
         Connection conexao9 = new Connection(9, estacao3, estacao1, 230.0, 185.0, startdate6, enddate6);
 
-        // Adicionar conexões à base de dados
+        // Adicionar conexões à DataBase
         db.adicionarConexao(conexao1);
         db.adicionarConexao(conexao2);
         db.adicionarConexao(conexao3);
@@ -88,6 +97,7 @@ public class Main {
         db.listarConexoes();
         System.out.println("\n");
 
+        //Criar histórico de users para testar as funções seguintes
         user1.addHistorico(conexao1.getStartdate(), conexao1);
         user1.addHistorico(conexao2.getStartdate(), conexao2);
         user1.addHistorico(conexao3.getStartdate(), conexao3);
@@ -107,9 +117,9 @@ public class Main {
         user4.addHistorico(conexao6.getStartdate(), conexao6);
 
 
-        RedBlackBST<Date, Connection> conexoesPeriodo = db.buscarConexoesPorPeriodo(user3, inicio, fim);
 
         //R4 a)conexões encontradas
+        RedBlackBST<Date, Connection> conexoesPeriodo = db.buscarConexoesPorTempo(user3, inicio, fim);
         System.out.println("Conexões encontradas no Periodo de Tempo: ");
         for (Date data : conexoesPeriodo.keys()) {
             Connection conexao = conexoesPeriodo.get(data);
@@ -126,9 +136,9 @@ public class Main {
         System.out.println("\n");
 
         //R4 c)user que passaram na station
-        List<User> usuariosPorConexao = db.usuariosPorConexao(estacao3, inicio, fim);
+        List<User> userPorConexao = db.userPorConexao(estacao3, inicio, fim);
         System.out.println("Users que passaram pela Station: ");
-        for (User user : usuariosPorConexao) {
+        for (User user : userPorConexao) {
             System.out.println(user.getNome());
         }
         System.out.println("\n");
@@ -142,18 +152,16 @@ public class Main {
 
         db.gerarRelatorioGlobal(startdate1, enddate6); //dia 10 a dia 15
 
+        //Estações proximas
+        db.nearByStation(estacao1,1000.0);
+
         // Mapeamento
-        Graph graph = new Graph(3); // N de vértices
+        // Gerar Mapa
+        EdgeWeightedDigraph mapa = map.gerarmap(db);
+        map.shortdistance(mapa, 1);
 
-        HashMap<Station, Integer> stationToVertex = new HashMap<>();
-        stationToVertex.put(estacao1, 0);
-        stationToVertex.put(estacao2, 1);
-        stationToVertex.put(estacao3, 2);
 
-        // Adição das conexões como arestas do grafo
-        graph.addEdge(stationToVertex.get(conexao1.getSource()), stationToVertex.get(conexao1.getDestination()));
-        graph.addEdge(stationToVertex.get(conexao2.getSource()), stationToVertex.get(conexao2.getDestination()));
-        graph.addEdge(stationToVertex.get(conexao3.getSource()), stationToVertex.get(conexao3.getDestination()));
+
 
 
         /*Connection search = db.buscarConexao(estacao1, estacao2);
